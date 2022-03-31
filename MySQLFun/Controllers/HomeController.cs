@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MySQLFun.Models;
+using MySQLFun.Models.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -16,10 +17,16 @@ namespace MySQLFun.Controllers
         {
             context = temp;
         }
-        public IActionResult Index()
+        public IActionResult Index(string bowlerTeam)
         {
-            var blah = context.Bowlers.ToList();
-            
+            //ViewBag.Teams = context.Teams.ToList();
+            ViewData["Team"] = bowlerTeam;
+            //changing this for ViewModel | var blah = context.Bowlers.ToList();
+            var blah = new BowlingViewModel
+            {
+                Bowlers = context.Bowlers
+                .Where(blah => blah.Team.TeamName == bowlerTeam || bowlerTeam == null)
+            };
             return View(blah);
         }
         [HttpGet]

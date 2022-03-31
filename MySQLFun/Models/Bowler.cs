@@ -23,7 +23,8 @@ namespace MySQLFun.Models
         public string BowlerZip { get; set; }
         [Required(ErrorMessage = "Please enter a valid Phone Number")]
         public string BowlerPhoneNumber { get; set; }
+        [Required]
         public int TeamID { get; set; }
-        public Team t { get; set; }
+        public Team Team { get; set; }
     }
 }

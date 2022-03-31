@@ -8,6 +8,6 @@ namespace MySQLFun.Models
     public interface IRepository
     {
         IQueryable<Bowler> Bowlers { get; }
-
+        IQueryable<Team> Teams { get; } //this is shady if there's an error it's probably here
     }
 }

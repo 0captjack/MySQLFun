@@ -14,5 +14,7 @@ namespace MySQLFun.Models
         }
         public IQueryable<Bowler> Bowlers => context.Bowlers;
 
+        public IQueryable<Team> Teams => context.Teams;
+        //this is shady if there's an error it's probably here
     }
 }
