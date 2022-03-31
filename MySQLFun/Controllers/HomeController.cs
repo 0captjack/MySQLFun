@@ -46,7 +46,7 @@ namespace MySQLFun.Controllers
             }
             else
             {
-                return View(b);
+                return View();
             }
         }
         [HttpGet]
